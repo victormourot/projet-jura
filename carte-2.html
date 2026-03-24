@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activités Humaines | PNR Haut-Jura</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo"><h1>PNR Haut-Jura</h1></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Introduction</a></li>
+                <li><a href="geographie.html">Géographie & Chiffres</a></li>
+                <li><a href="cartes.html" class="active">Espace Cartographique</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <div style="text-align: left; margin-top: 30px; margin-bottom: 20px;">
+            <a href="cartes.html" class="btn-main" style="background-color: #ff9800; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.2);">← Retour aux cartes</a>
+        </div>
+
+        <section class="geo-intro">
+            <h2>Thématique 2 : Activités Humaines et Artificialisation des sols</h2>
+        </section>
+
+        <section class="text-block full-width" style="background-color: #fff3e0; border-left: 6px solid #ff9800; margin-bottom: 20px; padding: 15px;">
+            <h3 style="margin-top:0;">🏗️ Le phénomène d'artificialisation</h3>
+            <p>L'artificialisation correspond à la transformation d'espaces naturels, agricoles ou forestiers par des aménagements humains (habitat, zones d'activités, routes). Le suivi de cette consommation d'espace est un enjeu majeur pour préserver les paysages et la biodiversité du Parc Naturel Régional du Haut-Jura.</p>
+        </section>
+
+        <section class="text-block full-width" style="background-color: #e3f2fd; border-left: 6px solid #2196f3; margin-bottom: 30px; padding: 15px;">
+            <p style="margin: 0;">💡 <strong>Comment utiliser cet outil ?</strong> Pour explorer le pourcentage d'artificialisation, cliquez sur la commune de votre choix au sein du graphique : cela agira sur la carte. Vous pouvez également sélectionner directement une commune sur la carte, ce qui la mettra en avant sur le graphique !</p>
+        </section>
+        
+        <section class="map-section" style="margin-bottom: 50px;">
+            
+            <h3 style="text-align: center; color: black; margin-bottom: 20px;">🗺️ Carte interactive de l'artificialisation des sols par commune</h3>
+
+            <div class="dashboard-wrapper" style="height: 800px; width: 100%; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                <iframe 
+                    id="dashboard-iframe"
+                    src="https://unistra.maps.arcgis.com/apps/dashboards/562fa9ee2bfe45988aa86c9b16c708ad" 
+                    width="100%" 
+                    height="100%" 
+                    frameborder="0" 
+                    style="border:0" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div style="display: flex; justify-content: center; width: 100%; margin-top: 20px;">
+                <button id="btn-recentrer" class="btn-main" style="border: none; cursor: pointer; font-size: 1rem;">
+                    📍 Recentrer sur le Haut-Jura (Réinitialiser)
+                </button>
+            </div>
+        </section>
+
+        <div style="text-align: left; margin-top: 30px; margin-bottom: 20px;">
+            <a href="cartes.html" class="btn-main" style="background-color: #ff9800; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.2);">← Retour aux cartes</a>
+        </div>
+
+    </main>
+
+    <footer><p>&copy; 2026 - Observatoire du Territoire - PNR Haut-Jura</p></footer>
+    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const dashboardIframe = document.getElementById("dashboard-iframe");
+            const btnRecentrer = document.getElementById("btn-recentrer");
+            
+            if (dashboardIframe && btnRecentrer) {
+                btnRecentrer.addEventListener("click", function() {
+                    const srcCourante = dashboardIframe.src;
+                    dashboardIframe.src = srcCourante;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

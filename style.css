@@ -1,0 +1,352 @@
+/* Palette de couleurs et Styles généraux */
+:root {
+    --vert-sapin: #0a3d24;
+    --vert-clair: #7fb069;
+    --blanc-pur: #ffffff;
+    --gris-clair: #f4f8fb; /* Légèrement adouci pour faire ressortir le blanc des cartes */
+    --texte-noir: #2c3e50; /* Un gris-bleu très foncé, plus moderne et doux à lire que le noir pur */
+    --ombre-douce: 0 8px 24px rgba(0, 0, 0, 0.04);
+    --ombre-hover: 0 15px 35px rgba(0, 0, 0, 0.08);
+    --transition-fluide: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body {
+    /* Utilisation des polices système modernes (très élégant sur Mac, Windows et mobiles) */
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--texte-noir);
+    background-color: var(--gris-clair);
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+/* En-tête et Navigation */
+header {
+    background-color: var(--vert-sapin); 
+    color: var(--blanc-pur);
+    padding: 1.2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(10, 61, 36, 0.15); /* Ombre teintée en vert pour l'harmonie */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Permet au menu de rester au-dessus du reste au défilement */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+}
+
+nav a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 18px;
+    border-radius: 50px; /* Forme de pilule très moderne pour les menus */
+    transition: var(--transition-fluide);
+    font-size: 0.95rem;
+}
+
+nav a:hover, nav a.active {
+    background-color: var(--vert-clair);
+    color: var(--blanc-pur);
+}
+
+/* Container général pour centrer le contenu */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Section Hero (Bannières avec photos) */
+.hero {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blanc-pur);
+    text-align: center;
+}
+
+.hero-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(65%);
+    transform: scale(1.02); /* Évite les bords blancs */
+}
+
+.hero-text h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    margin: 0 0 15px 0;
+}
+
+.hero-text p {
+    font-size: 1.3rem;
+    font-weight: 400;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+/* Blocs de contenu génériques */
+.text-block {
+    background: var(--blanc-pur);
+    padding: 40px;
+    border-radius: 16px; /* Coins plus doux */
+    box-shadow: var(--ombre-douce);
+    border-left: 4px solid var(--vert-clair); /* Bordure affinée et passée en vert clair */
+    margin-bottom: 40px;
+    transition: var(--transition-fluide);
+}
+
+.text-block:hover {
+    box-shadow: var(--ombre-hover);
+}
+
+.text-block h3 {
+    color: var(--vert-sapin);
+    margin-top: 0;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Mise en page de l'Introduction (index.html) */
+.intro-content {
+    margin-top: -60px; /* Le bloc remonte légèrement sur l'image pour un effet moderne */
+    position: relative;
+    z-index: 10;
+}
+
+.illus-block-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.illus-card {
+    background: var(--blanc-pur);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--ombre-douce);
+    transition: var(--transition-fluide);
+    display: flex;
+    flex-direction: column;
+}
+
+.illus-card:hover {
+    transform: translateY(-8px); /* La carte se soulève au passage de la souris */
+    box-shadow: var(--ombre-hover);
+}
+
+.illus-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.illus-text {
+    padding: 30px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Grille de chiffres clés (geographie.html) */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin: 50px 0;
+}
+
+.stat-card {
+    background: var(--blanc-pur);
+    color: var(--vert-sapin);
+    padding: 35px 20px;
+    text-align: center;
+    border-radius: 16px;
+    border: 1px solid rgba(127, 176, 105, 0.2); /* Bordure très discrète */
+    box-shadow: var(--ombre-douce);
+    transition: var(--transition-fluide);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--ombre-hover);
+    border-color: var(--vert-clair);
+}
+
+.stat-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--vert-sapin);
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--vert-clair);
+    letter-spacing: 0.5px;
+}
+
+/* Mise en page Géographie Détaillée */
+.geo-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+    align-items: start; /* Maintient ta correction pour la bulle de texte ! */
+}
+
+.geo-illus-block {
+    text-align: center;
+}
+
+.geo-illus-img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: var(--ombre-douce);
+    transition: var(--transition-fluide);
+}
+
+.geo-illus-img:hover {
+    box-shadow: var(--ombre-hover);
+}
+
+.geo-caption {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #7f8c8d;
+    margin-top: 12px;
+}
+
+/* Mise en page Faune/Biodiversité */
+.faune-flaure-section {
+    margin-top: 50px;
+}
+
+.faune-flaure-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.faune-illus-img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: var(--ombre-douce);
+}
+
+/* Page CartesInteractives (cartes.html) */
+.maps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.map-card {
+    background: var(--blanc-pur);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: var(--ombre-douce);
+    transition: var(--transition-fluide);
+    border-top: 4px solid var(--vert-sapin); /* Touche de couleur en haut */
+}
+
+.map-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--ombre-hover);
+}
+
+.map-card h3 {
+    color: var(--vert-sapin);
+    margin-top: 0;
+}
+
+/* Boutons */
+.cta-container {
+    margin-top: 25px;
+    text-align: left; /* Aligné à gauche dans les cartes, plus moderne */
+}
+
+.text-block.full-width .cta-container {
+    text-align: center; /* Reste centré dans les grands blocs */
+}
+
+.btn-main {
+    display: inline-block;
+    background-color: var(--vert-sapin);
+    color: var(--blanc-pur);
+    padding: 14px 32px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: var(--transition-fluide);
+    box-shadow: 0 4px 15px rgba(10, 61, 36, 0.2);
+}
+
+.btn-main:hover {
+    background-color: var(--vert-clair);
+    color: var(--blanc-pur);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(127, 176, 105, 0.3);
+}
+
+/* Conteneurs de cartes (ArcGIS, StoryMap) */
+.map-wrapper, .dashboard-wrapper {
+    margin-top: 40px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--ombre-douce);
+    border: 1px solid rgba(127, 176, 105, 0.3);
+    transition: var(--transition-fluide);
+}
+
+.map-wrapper:hover, .dashboard-wrapper:hover {
+    box-shadow: var(--ombre-hover);
+}
+
+arcgis-embedded-map {
+    display: block;
+    max-width: 100%;
+}
+
+/* Pied de page */
+footer {
+    background-color: var(--vert-sapin);
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding: 3rem 2rem;
+    font-size: 0.95rem;
+    margin-top: 60px;
+}

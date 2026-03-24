@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Observatoire du Territoire | PNR Haut-Jura</title>
+    <script type="module" src="https://js.arcgis.com/5.0/embeddable-components/"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>Parc naturel régional du Haut-Jura</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Introduction</a></li>
+                <li><a href="geographie.html">Géographie & Chiffres</a></li>
+                <li><a href="cartes.html">Espace Cartographique</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero index-hero">
+            <img src="village_et_cours_d_eau_1200x799.jpg" alt="Paysage du Haut-Jura" class="hero-image">
+            <div class="hero-text">
+                <h2>L'Observatoire du Territoire</h2>
+                <p>Un outil de pilotage stratégique au service du massif</p>
+            </div>
+        </section>
+
+        <section class="container intro-content">
+            <div class="text-block main-text">
+                <h3>Le Socle Numérique de l'Observatoire</h3>
+                <p>Dans le cadre de la mission « Observatoire du territoire du Parc naturel régional du Haut-Jura », la Présidence du Parc a initié la création d'un espace web cartographique. Ce dispositif constitue le socle numérique de l'Observatoire, un outil stratégique conçu pour centraliser la connaissance et assurer le suivi des indicateurs clés ainsi que valoriser les spécificités de notre région.</p>
+            </div>
+
+            <div class="text-block localization-map-block full-width">
+                <h3>Localisation du Parc naturel régional du Haut-Jura en France</h3>
+                <div class="map-wrapper">
+                    <arcgis-embedded-map 
+                        id="carte-localisation"
+                        style="height:600px;width:100%;" 
+                        item-id="8d456087c3d64799b7dfc7678c60f565" 
+                        theme="light" 
+                        time-zone-label-enabled 
+                        center="6.110677768207953,46.47096278237022"
+                        scale="1155581.108577" 
+                        portal-url="https://unistra.maps.arcgis.com">
+                    </arcgis-embedded-map>
+                </div>
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <button id="btn-recentrer" class="btn-main" style="border: none; cursor: pointer; font-size: 1rem;">
+                        📍 Recentrer sur le Haut-Jura
+                    </button>
+                </div>
+            </div>
+
+            <div class="illus-block-grid">
+                <div class="illus-card">
+                    <img src="cascade.jpg" alt="Cascade du Haut-Jura">
+                    <p style="font-size: 0.8rem; text-align: right; color: #7f8c8d; margin: 8px 20px 0 0; font-style: italic;">
+                        Source photo : <a href="https://unsplash.com" target="_blank" style="color: #7fb069; text-decoration: none;">unsplash.com</a>
+                    </p>
+                    <div class="illus-text">
+                        <h3>Pourquoi cet outil ?</h3>
+                        <p>La mise en place d'un observatoire du territoire dépasse largement le cadre d'un simple recueil de données géographiques ; il s'agit d'un véritable instrument de pilotage stratégique. Dans un contexte réglementaire de plus en plus exigeant, notamment avec les impératifs liés au Zéro Artificialisation Nette, cet outil permet aux collectivités de répondre à leurs obligations légales tout en transformant ces contraintes en opportunités de planification. Au-delà de l'aspect strictement réglementaire, l'observatoire constitue un levier de marketing territorial essentiel. En s'appuyant sur des indicateurs fiables et objectivés, il devient possible de valoriser les atouts d'un espace auprès des acteurs économiques et d'accroître l'attractivité de la région grâce à une communication basée sur des faits concrets.</p>
+                    </div>
+                </div>
+                <div class="illus-card">
+                    <img src="la_bole_hiver.jpg" alt="Paysage enneigé du Haut-Jura">
+                    <p style="font-size: 0.8rem; text-align: right; color: #7f8c8d; margin: 8px 20px 0 0; font-style: italic;">
+                        Source photo : <a href="https://www.jura-tourism.com/essentiel-du-jura/au-fil-des-saisons/hiver/" target="_blank" style="color: #7fb069; text-decoration: none;">jura-tourism.com</a>
+                    </p>
+                    <div class="illus-text">
+                        <h3>Mesurer les évolutions</h3>
+                        <p>Le fait de mesurer les évolutions sur le territoire offre une capacité d'analyse indispensable pour identifier ses fragilités sociales et environnementales. Le suivi continu et le croisement des données spatiales dans le temps facilitent la détection de zones vulnérables, qu'il s'agisse de l'aggravation de la précarité énergétique ou de l'expansion des îlots de chaleur urbains, permettant ainsi d'orienter les politiques publiques avec une plus grande précision. Cette connaissance approfondie des dynamiques de terrain est également la clé d'une gestion durable des ressources. Qu'il s'agisse de la consommation foncière, de l'eau ou de l'énergie, l'observation de ces tendances aide à repérer les inefficacités et à cibler les interventions de manière optimale. En outre, la centralisation de ces informations historiques et actuelles favorise une coopération inter-institutionnelle beaucoup plus fluide. En partageant un référentiel unique sur les mutations du territoire, les différents échelons administratifs brisent les logiques de silos et mutualisent leurs efforts. Enfin, l'ouverture de ces données au grand public répond à une exigence démocratique croissante, en garantissant la transparence des décisions et en encourageant l'implication des citoyens dans les projets d'aménagement.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-block full-width" style="text-align: center; border-left: 6px solid #7fb069; background-color: #f4f8fb;">
+                <h3>Découvrez le Haut-Jura en images</h3>
+                <p>Plongez au cœur de notre territoire à travers cette courte immersion visuelle.</p>
+                
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin: 25px 0;">
+                    <iframe 
+                        src="https://www.youtube-nocookie.com/embed/EocV_-PP8Pc?rel=0&modestbranding=1" 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+                        title="Vidéo de présentation du Haut-Jura"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                
+                <p style="font-size: 0.9em; color: #555; margin-top: 15px;">
+                    Source de la vidéo : <a href="https://www.youtube.com/@villedemorez-hautsdebienne8909" target="_blank" style="color: #0a3d24; font-weight: bold; text-decoration: none;">@villedemorez-hautsdebienne8909</a>
+                </p>
+            </div>
+            <div class="text-block full-width">
+                <h3>Comment ça marche ?</h3>
+                <p>L’espace web cartographique que nous développons permet d’organiser et de diffuser l’ensemble des données collectées par le Parc et ses partenaires, dans le but de rendre l'accès à des informations parfois complexes et restreintes plus simple pour le plus grand nombre.</p>
+                <div class="cta-container">
+                    <a href="geographie.html" class="btn-main">Découvrir les chiffres clés du parc</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Observatoire du Territoire - PNR Haut-Jura</p>
+    </footer>
+
+    <script src="script.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const carteLocalisation = document.getElementById("carte-localisation");
+            const btnRecentrer = document.getElementById("btn-recentrer");
+            
+            if (carteLocalisation && btnRecentrer) {
+                const centreInitial = "6.110677768207953,46.47096278237022";
+                const echelleInitiale = "1155581.108577";
+
+                btnRecentrer.addEventListener("click", function() {
+                    carteLocalisation.setAttribute("center", centreInitial);
+                    carteLocalisation.setAttribute("scale", echelleInitiale);
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

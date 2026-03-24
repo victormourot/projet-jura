@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pollution Lumineuse | PNR Haut-Jura</title>
+    <script type="module" src="https://js.arcgis.com/5.0/embeddable-components/"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo"><h1>PNR Haut-Jura</h1></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Introduction</a></li>
+                <li><a href="geographie.html">Géographie & Chiffres</a></li>
+                <li><a href="cartes.html" class="active">Espace Cartographique</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <div style="text-align: left; margin-top: 30px; margin-bottom: 20px;">
+            <a href="cartes.html" class="btn-main" style="background-color: #3f51b5; box-shadow: 0 4px 15px rgba(63, 81, 181, 0.2);">← Retour aux cartes</a>
+        </div>
+
+        <section class="geo-intro">
+            <h2>Thématique 4 : Pollution Lumineuse et Trame Noire</h2>
+        </section>
+
+        <section class="text-block full-width" style="background-color: #e8eaf6; border-left: 6px solid #3f51b5; margin-bottom: 30px; padding: 15px;">
+            <h3 style="margin-top:0;">🌌 Préserver l'obscurité, un enjeu écologique</h3>
+            <p>La pollution lumineuse, ou Lumière Artificielle Nocturne (ALAN), représente une menace silencieuse pour la biodiversité du Haut-Jura. Elle désoriente les espèces migratrices, perturbe les cycles de reproduction et fragmente les habitats naturels nocturnes.</p>
+            <p>Cette carte présente la <strong>dynamique spatio-temporelle</strong> de la lumière entre 1992 et 2012. Elle permet d'identifier les zones où la pression lumineuse augmente et celles où les efforts de sobriété portent leurs fruits, afin de mieux protéger nos "réservoirs d'obscurité".</p>
+        </section>
+        
+        <section class="text-block full-width" style="background-color: #fff3e0; border-left: 6px solid #ff9800; margin-bottom: 30px; padding: 20px;">
+            <h3 style="margin-top:0; color: #e65100;">📖 Comment afficher la légende ?</h3>
+            <p>Pour comprendre la signification des couleurs, cliquez sur l'icône <strong>"Menu" (les 3 barres horizontales ☰)</strong> située dans le coin supérieur gauche de la carte interactive.</p>
+        </section>
+
+        <section class="map-section" style="margin-bottom: 50px;">
+            <div class="map-wrapper" style="height: 700px; width: 100%;">
+                <arcgis-embedded-map 
+                    id="carte-pollution"
+                    style="height:100%; width:100%;" 
+                    item-id="646c4b1d519a43618ed182ece282e4dd" 
+                    theme="light" 
+                    heading-enabled 
+                    legend-enabled 
+                    time-zone-label-enabled 
+                    center="6.137525075654646,46.54034422077813" 
+                    scale="1155581.108577" 
+                    portal-url="https://unistra.maps.arcgis.com">
+                </arcgis-embedded-map>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px; margin-bottom: 40px;">
+                <button id="btn-recentrer" class="btn-main" style="border: none; cursor: pointer; font-size: 1rem; background-color: #3f51b5;">
+                    📍 Recentrer sur le Haut-Jura
+                </button>
+            </div>
+
+            <div class="text-block full-width" style="text-align: center;">
+                <h3>Modèles de luminaires et impacts lumineux</h3>
+                <img src="type-lampadaires.jpg" alt="Différents types de lampadaires et leur diffusion lumineuse" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                <p style="text-align: justify; font-style: italic; border-top: 1px solid #eee; pt-3;">
+                    La régulation du matériel d'éclairage est le premier levier pour réduire la pollution lumineuse. En privilégiant des luminaires dirigés vers le sol et des spectres de couleurs chaudes, les communes limitent la diffusion de lumière vers l'atmosphère et les habitats naturels. Cette démarche de sobriété technologique permet de concilier sécurité publique et préservation de la biodiversité nocturne.
+                </p>
+            </div>
+        </section>
+
+        <div style="text-align: left; margin-top: 30px; margin-bottom: 20px;">
+            <a href="cartes.html" class="btn-main" style="background-color: #3f51b5; box-shadow: 0 4px 15px rgba(63, 81, 181, 0.2);">← Retour aux cartes</a>
+        </div>
+
+    </main>
+
+    <footer><p>&copy; 2026 - Observatoire du Territoire - PNR Haut-Jura</p></footer>
+    
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const cartePollution = document.getElementById("carte-pollution");
+            const btnRecentrer = document.getElementById("btn-recentrer");
+            
+            if (cartePollution && btnRecentrer) {
+                const centreInitial = "6.137525075654646,46.54034422077813";
+                const echelleInitiale = "1155581.108577";
+
+                btnRecentrer.addEventListener("click", function() {
+                    cartePollution.setAttribute("center", centreInitial);
+                    cartePollution.setAttribute("scale", echelleInitiale);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

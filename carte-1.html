@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milieux Naturels | PNR Haut-Jura</title>
+    <script type="module" src="https://js.arcgis.com/5.0/embeddable-components/"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo"><h1>PNR Haut-Jura</h1></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Introduction</a></li>
+                <li><a href="geographie.html">Géographie & Chiffres</a></li>
+                <li><a href="cartes.html" class="active">Espace Cartographique</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <div style="text-align: left; margin-top: 30px; margin-bottom: 20px;">
+            <a href="cartes.html" class="btn-main" style="background-color: #4a90e2; box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);">← Retour aux cartes</a>
+        </div>
+        
+        <section class="geo-intro">
+            <h2>Thématique 1 : Milieux Naturels & Espaces Forestiers</h2>
+        </section>
+
+        <section class="text-block full-width" style="background-color: #f4f8fb; border-left: 6px solid #4a90e2; margin-bottom: 30px; padding: 15px;">
+            <h3 style="margin-top:0;">🌲 Pourquoi s'intéresser aux forêts communales ?</h3>
+            <p>Une forêt communale est une forêt appartenant à une commune et gérée pour l’intérêt de ses habitants, souvent avec l’aide de l’Office national des forêts (ONF). Elle remplit plusieurs rôles majeurs : produire du bois, protéger la biodiversité, préserver les sols et offrir un espace de détente. Elle est donc essentielle à la fois pour l’environnement, l’économie locale et le bien-être de la population.</p>
+            <p>Bien qu'il existe d’autres types de forêts (domaniales appartenant à l’État, privées ou protégées) toutes aussi importantes pour la production ou la protection de la nature, les forêts communales méritent une attention particulière.</p>
+            <p>En effet, elles sont au plus près des citoyens et illustrent de manière concrète comment gérer durablement un espace naturel à l'échelle locale. L'évolution de leur superficie (à la hausse comme à la baisse) constitue un indicateur concret de l'état de santé de la forêt. Afin de préserver la lisibilité de la carte, les espaces de moins de 4 km² ont été masqués. L'outil permet ainsi de se concentrer sur les principaux massifs forestiers gérés par les communes.</p>
+        </section>
+
+        <section class="text-block full-width" style="background-color: #f0f7ee; border-left: 6px solid #7fb069; margin-bottom: 30px; padding: 15px;">
+            <h3 style="margin-top:0;">💡 Comment utiliser la carte ?</h3>
+            <ul>
+                <li><strong>Zoom :</strong> Zoomez sur la carte pour faire apparaître le nom des communes situées au sein et en bordure du Parc naturel régional du Haut-Jura, ainsi que le nom des forêts.</li>
+                <li><strong>Clic :</strong> Cliquez sur une forêt pour afficher sa fiche d'identité. Celle-ci comprend des images illustratives, sa superficie, une brève description des milieux et des activités.</li>
+            </ul>
+        </section>
+
+        <section class="map-section" style="margin-bottom: 50px;">
+            <div class="map-wrapper" style="height: 600px; width: 100%;">
+                <arcgis-embedded-map 
+                    id="carte-milieux"
+                    style="height:100%; width:100%;" 
+                    item-id="0a9a5e6317f643e59e84924fc300dd4a" 
+                    theme="light" legend-enabled basemap-gallery-enabled
+                    center="5.944161935436425,46.43507393249852" scale="1155581" 
+                    portal-url="https://unistra.maps.arcgis.com">
+                </arcgis-embedded-map>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <button id="btn-recentrer" class="btn-main" style="border: none; cursor: pointer; font-size: 1rem;">
+                    📍 Recentrer sur le Haut-Jura
+                </button>
+            </div>
+        </section>
+
+        <div style="text-align: left; margin-top: 30px; margin-bottom: 20px;">
+            <a href="cartes.html" class="btn-main" style="background-color: #4a90e2; box-shadow: 0 4px 15px rgba(74, 144, 226, 0.2);">← Retour aux cartes</a>
+        </div>
+
+    </main>
+
+    <footer><p>&copy; 2026 - Observatoire du Territoire - PNR Haut-Jura</p></footer>
+    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const carteMilieux = document.getElementById("carte-milieux");
+            const btnRecentrer = document.getElementById("btn-recentrer");
+            
+            if (carteMilieux && btnRecentrer) {
+                const centreInitial = "5.944161935436425,46.43507393249852";
+                const echelleInitiale = "1155581";
+
+                btnRecentrer.addEventListener("click", function() {
+                    carteMilieux.setAttribute("center", centreInitial);
+                    carteMilieux.setAttribute("scale", echelleInitiale);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
